@@ -1,22 +1,29 @@
-hab
-===
+# mab
 
-This is the development area for the package `hab`, a set of functions related
-to habitat selection and movement analyses. Also includes a few patches for
-functions from the adehabitat package family (notably
+The package `mab` is a collection of functions related to movement and habitat
+selection analyses. It also includes a few patches for functions from the
+adehabitat package family (notably
 [adehabitatLT](https://cran.r-project.org/package=adehabitatLT) and
 [adehabitatHR](https://cran.r-project.org/package=adehabitatHR)).
 
 ## Installation
 
-You can use the [`remotes`](https://remotes.r-lib.org/) package to install the
-latest version:
+Install `mab` from CRAN:
 
-```{r}
-remotes::install_github("basille/hab")
+``` r
+install.packages("mab")
+```
+
+To install the package from GitHub (which may be ahead of CRAN from time
+to time), use the package
+[`remotes`](https://cran.r-project.org/package=remotes) or better
+[`pak`](https://cran.r-project.org/package=pak) to install `mab`:
+
+``` r
+remotes::install_github("basille/mab")
+pak::pkg_install("basille/mab")
 ```
 
 ## Getting started
 
-For a list of documented functions, use `library(help = "hab")` or see the
-Reference manual.
+Check the function reference list.

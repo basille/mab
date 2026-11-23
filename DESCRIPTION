@@ -1,19 +1,22 @@
-Package: hab
-Version: 1.20.4
-Date: 2015-07-30
-Title: Habitat and movement functions
-Description: A set of functions related to habitat selection and movement
-    analyses. Also includes a few patches for functions from the adehabitatXY
-    package family.
-Author: Mathieu Basille
-Maintainer: Mathieu Basille <basille@ase-research.org>
-Depends:
+Package: mab
+Title: Movement and Habitat Analyses
+Version: 1.99
+Date: 2026-11-23
+Authors@R: 
+    person("Mathieu", "Basille", email = "mathieu@basille.org",
+        role = c("aut", "cre", "cph"),
+        comment = c(ORCID = "0000-0001-9366-7127"))
+Description: A set of functions related to movement and habitat selection
+    analyses. Also includes patches for functions from the adehabitat package
+    family.
+URL: https://github.com/basille/mab, http://basille.github.io/mab/
+Imports:
     adehabitatLT,
     adehabitatHR
-Imports:
-    adehabitatMA
 Suggests:
     survival,
     tkrplot
-License: GPL (>= 3)
-URL: http://ase-research.org/basille/hab
+License: GPL + file LICENSE
+Config/roxygen2/version: 8.1.1
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)

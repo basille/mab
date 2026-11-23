@@ -1,0 +1,10 @@
+^LICENSE\.md$
+^TODO\.md$
+^cran-comments\.md$
+^CRAN-SUBMISSION$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+^README\.Rmd$
+^README\.html$

@@ -1,3 +1,46 @@
+* nselect.ltraj <- function(x, n, by = c("loc", "burst"),
+    comp = c(">=", ">", "<", "<="), na.rm = FALSE)
+{
+    ## Check that x is a ltraj
+    if (!inherits(x, "ltraj"))
+        stop("x should be an object of class ltraj.")
+    ## Check that n contains only positive integers
+    if (!all.equal(trunc(n), n) | any(n <= 0))
+        stop("n should be a positive integer.")
+    ## Match 'by' and 'comp' arguments
+    by <- match.arg(by)
+    comp <- match.arg(comp)
+    ## nselect by 'burst'
+    if (by == "burst") {
+        ## Frequency of each id
+        tx <- table(id(x))
+        ## Does each freq validate the comparison?
+        comp <- sapply(paste(tx, comp, n), function(t) eval(parse(text = t)))
+        ## If all FALSE, return NULL
+        if (all(comp == FALSE))
+            return()
+        ## Otherwise, extract only the TRUEs
+        tx <- names(tx)[comp]
+        x[id(x) %in% tx]
+    }
+    ## nselect by 'loc'
+    else if (by == "loc") {
+        ## Frequency of locs for each burst
+        nx <- sapply(x, nrow)
+        ## 'na.rm == TRUE' compares the number of non-NAs
+        if (na.rm == TRUE)
+            nx <- nx - sapply(x, function(i) sum(is.na(i[, 1])))
+        ## Does each freq validate the comparison?
+        comp <- sapply(paste(nx, comp, n), function(t) eval(parse(text = t)))
+        ## If all FALSE, return NULL
+        if (all(comp == FALSE))
+            return()
+        ## Otherwise, extract only the TRUEs
+        x[comp]
+    }
+}
+
+
 * check kselect overlap (Cyril Milleret 2016/02)
 
 
