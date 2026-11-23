@@ -23,7 +23,7 @@
 ##' repetition (useful for debugging).
 ##' @return A data frame with the correlations (\code{cor}) and the
 ##' type of value (\code{type}).
-##' @author Mathieu Basille \email{basille@@ase-research.org}, with
+##' @author Mathieu Basille \email{mathieu@@basille.org}, with
 ##' the help of Terry Therneau and Guillaume Bastille-Rousseau
 ##' @export
 kfold <- function(mod, k = 5, nrepet = 100, jitter = FALSE,

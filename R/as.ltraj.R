@@ -1,27 +1,45 @@
-## as.ltraj
-##
-##' Faster version of \code{\link[adehabitatLT]{as.ltraj}}, which can
-##' be up to 5-10 times faster.
-##'
-##' @title Working with Trajectories in 2D Space: the Class ltraj
-##' @seealso See \code{\link[adehabitatLT]{ld}} for further details on
-##' the function and all available arguments.
-##' @author Modified by Mathieu Basille
-##' \email{basille@@ase-research.org}
-##' @export
-##' @examples
-##' data(puechabonsp)
-##' locs <- puechabonsp$relocs
-##' xy <- coordinates(locs)
-##' df <- as.data.frame(locs)
-##' id <- df[,1]
-##' da <- as.POSIXct(strptime(as.character(df$Date), "%y%m%d"))
-##' ltr1 <- adehabitatLT::as.ltraj(xy, da, id = id)
-##' ltr2 <- as.ltraj(xy, da, id = id)
-##' all.equal(ltr1, ltr2)
+#' Working with Trajectories in 2D Space: the Class ltraj
+#'
+#' Faster version of \code{\link[adehabitatLT]{as.ltraj}}, which can
+#' be up to 5-10 times faster.
+#'
+#' @param xy A data.frame containing the x and y coordinates of the relocations.
+#' @param date For trajectories of type II, a vector of class \code{POSIXct}
+#'     giving the date for each relocation. For trajectories of type I, this
+#'     argument is not taken into account.
+#' @param id Either a character string indicating the identity of the animal or
+#'     a factor with length equal to \code{nrow(xy)}/
+#' @param burst Either a character string indicating the identity of the burst
+#'     of relocations or a factor with length equal to \code{nrow(xy)}.
+#' @param typeII Logical. \code{TRUE} indicates a trajectory of type II (time
+#'     recorded, e.g. radio-tracking), whereas \code{FALSE} indicates a
+#'     trajectory of type I (time not recorded, e.g. sampling of tracks in the
+#'     snow).
+#' @param slsp A character string used for the computation of the turning
+#'     angles.
+#' @param infolocs If not \code{NULL}, a data frame containing additionnal
+#'     information on the relocations (e.g., precision). By default, a primary
+#'     key is generated.
+#' @param proj4string An object of class CRS storing the projection information
+#'     of the relocations.
+#' @seealso See \code{\link[adehabitatLT]{ld}} for further details on the
+#'     function and all available arguments.
+#' @author Modified by Mathieu Basille \email{mathieu@@basille.org}
+#' @export
+#' @importFrom sp CRS
+#' @examples
+#' data(puechabonsp)
+#' locs <- puechabonsp$relocs
+#' xy <- coordinates(locs)
+#' df <- as.data.frame(locs)
+#' id <- df[,1]
+#' da <- as.POSIXct(strptime(as.character(df$Date), "%y%m%d"))
+#' ltr1 <- adehabitatLT::as.ltraj(xy, da, id = id)
+#' ltr2 <- mab::as.ltraj(xy, da, id = id)
+#' all.equal(ltr1, ltr2)
 as.ltraj <- function (xy, date = NULL, id, burst = id, typeII = TRUE, slsp = c("remove",
     "missing"), infolocs = data.frame(pkey = paste(id, date,
-    sep = ".")))
+    sep = "."), row.names = row.names(xy)), proj4string = CRS())
 {
     if (typeII) {
         if (!inherits(date, "POSIXct"))
@@ -33,6 +51,8 @@ as.ltraj <- function (xy, date = NULL, id, burst = id, typeII = TRUE, slsp = c("
     if (length(date) != nrow(xy))
         stop("date should be of the same length as xy")
     slsp <- match.arg(slsp)
+    if (!inherits(proj4string, "CRS"))
+        stop("proj4string should inherit CRS")
     if (!is.null(infolocs)) {
         if (nrow(infolocs) != nrow(xy))
             stop("infolocs should have the same number of rows as xy")
@@ -55,7 +75,7 @@ as.ltraj <- function (xy, date = NULL, id, burst = id, typeII = TRUE, slsp = c("
         stop("one burst level should belong to only one id level")
     x <- xy[, 1]
     y <- xy[, 2]
-    res <- split(data.frame(x = x, y = y, date = date), burst)
+    res <- split(data.frame(x = x, y = y, date = date, row.names = row.names(xy)), burst)
     ## Test of duplicated dates now:
     ## Condition tested on the fly and not stored + use of
     ## 'duplicated'
@@ -80,7 +100,6 @@ as.ltraj <- function (xy, date = NULL, id, burst = id, typeII = TRUE, slsp = c("
     ## liid <- split(id, burst)
     ## EOM
     ## Check the condition only once
-    ## if (!is.null(infolocs))
     if (!is.null(infolocs)) {
         linfol <- split(infolocs, burst)
     ## if (!is.null(infolocs))
@@ -165,5 +184,6 @@ as.ltraj <- function (xy, date = NULL, id, burst = id, typeII = TRUE, slsp = c("
     class(res) <- c("ltraj", "list")
     attr(res, "typeII") <- typeII
     attr(res, "regular") <- is.regular(res)
+    attr(res,"proj4string") <- proj4string
     return(res)
 }

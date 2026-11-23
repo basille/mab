@@ -28,7 +28,7 @@
 ##' @seealso See \code{\link[adehabitatLT]{plotltr}} for further
 ##' details on the function and all available arguments.
 ##' @author Modified by Mathieu Basille
-##' \email{basille@@ase-research.org}
+##' \email{mathieu@@basille.org}
 ##' @export
 ##' @examples
 ##' data(puechcirc)
@@ -49,7 +49,7 @@
 ##' plotltr(puechcirc, "dx", ppar = list(col = rep(1:8, each = 6)),
 ##'     addlines = FALSE)
 ##' @author Modified by Mathieu Basille
-##' \email{basille@@ase-research.org}
+##' \email{mathieu@@basille.org}
 plotltr <- function(x, which = "dist", perani = FALSE, addlines = TRUE,
     mfrow, ppar = list(pch = 16, cex = 0.7), lpar = list(), ...)
 {

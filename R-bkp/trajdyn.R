@@ -72,7 +72,7 @@
 ##' @return If a \code{nvar} is provided, return the original ltraj
 ##' with updated values in \code{infolocs(nvar)}.
 ##' @author Modified by Mathieu Basille
-##' \email{basille@@ase-research.org}
+##' \email{mathieu@@basille.org}
 ##' @export
 ##' @examples
 ##' \dontrun{

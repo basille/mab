@@ -27,7 +27,7 @@
 ##' data}
 ##' @references Mardia, K. V. & Jupp, P. E. (2000) Directional
 ##' statistics. Wiley, 429 pp.
-##' @author Mathieu Basille \email{basille@@ase-research.org}
+##' @author Mathieu Basille \email{mathieu@@basille.org}
 ##' @export
 ##' @examples
 ##' ## From Mardia & Jupp (2000), p.246

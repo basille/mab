@@ -40,7 +40,7 @@
 ##' @return The same ltraj as \code{from}, with additional variables
 ##' giving x and y coordinates, the date, id and burst of the closest
 ##' relocation, together with the distance to this relocation.
-##' @author Mathieu Basille \email{basille@@ase-research.org}
+##' @author Mathieu Basille \email{mathieu@@basille.org}
 ##' @examples
 ##' data(puechcirc)
 ##'

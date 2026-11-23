@@ -10,7 +10,7 @@
 ##' @return A ltraj object.
 ##' @seealso See \code{\link[adehabitatLT]{which.ltraj}} to identify the
 ##' relocations fullfilling a condition.
-##' @author Mathieu Basille \email{basille@@ase-research.org}
+##' @author Mathieu Basille \email{mathieu@@basille.org}
 ##' @export
 ##' @examples
 ##' ## Load puechcirc data and add some infolocs:

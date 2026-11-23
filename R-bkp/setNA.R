@@ -10,7 +10,7 @@
 ##' @seealso See \code{\link[adehabitatLT]{setNA}} for further details
 ##' on the function and all available arguments.
 ##' @author Modified by Mathieu Basille
-##' \email{basille@@ase-research.org}
+##' \email{mathieu@@basille.org}
 ##' @export
 setNA <- function(ltraj, date.ref, dt, tol = dt/10, units = c("sec",
     "min", "hour", "day"), ...)

@@ -42,7 +42,7 @@
 ##' @return A data frame, with new columns \code{case} (1 for observed
 ##' steps and 0 for random steps) and \code{strata} (a unique value for
 ##' each set of paired observed and random steps).
-##' @author Mathieu Basille \email{basille@@ase-research.org}
+##' @author Mathieu Basille \email{mathieu@@basille.org}
 ##' @export
 ##' @examples
 ##' ## Load the data

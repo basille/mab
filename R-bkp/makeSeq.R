@@ -17,7 +17,7 @@
 ##' @return For \code{makeSeq}, a ltraj with a new variable
 ##' \code{name} in infolocs, with the sequence number for each
 ##' location, in the form of an integer series for each burst.
-##' @author Mathieu Basille \email{basille@@ase-research.org}
+##' @author Mathieu Basille \email{mathieu@@basille.org}
 ##' @export
 ##' @examples
 ##' data(puechcirc)

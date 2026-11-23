@@ -29,7 +29,7 @@
 ##' number of successive steps kept per cluster (\code{nstep}) and the
 ##' number of successive steps dropped between each cluster
 ##' (\code{ndrop}).
-##' @author Mathieu Basille \email{basille@@ase-research.org}
+##' @author Mathieu Basille \email{mathieu@@basille.org}
 ##' @export
 ##' @examples
 ##' ## case (1 observed + 9 random)

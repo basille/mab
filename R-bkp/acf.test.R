@@ -20,7 +20,7 @@
 ##' \item \code{lag}: a vector with the resulting individual lags}
 ##' @seealso See \code{\link[stats]{acf}} for further details on the
 ##' ACF.
-##' @author Mathieu Basille \email{basille@@ase-research.org}
+##' @author Mathieu Basille \email{mathieu@@basille.org}
 ##' @export
 acf.test <- function(residuals, id, type = c("correlation", "covariance",
     "partial"), ci = 0.95) {
@@ -39,4 +39,3 @@ acf.test <- function(residuals, id, type = c("correlation", "covariance",
     ## and lags (vector)
     return(list(acfk = acfk, threshold = threshold, lag = lag))
 }
-

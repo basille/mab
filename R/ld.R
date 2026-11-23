@@ -18,7 +18,6 @@
 #'     function and all available arguments.
 #' @author Modified by Mathieu Basille \email{mathieu@@basille.org}
 #' @export
-#' @importFrom adehabitatLT id burst infolocs
 #' @examples
 #' data(puechcirc)
 #' puechcirc ## class ltraj
@@ -89,7 +88,6 @@ ld <- function(ltraj, strict = TRUE)
 #'     named \code{x, y, date}.
 #' @rdname ld
 #' @export
-#' @importFrom adehabitatLT as.ltraj is.regular
 dl <- function(x, strict = TRUE) {
     if (!inherits(x, "data.frame"))
         stop("x should be of class data.frame")

@@ -12,6 +12,8 @@ Description: A set of functions related to movement and habitat selection
 URL: https://github.com/basille/mab, http://basille.github.io/mab/
 Depends:
     adehabitatLT
+Imports:
+    sp
 Config/roxygen2/version: 8.1.1
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

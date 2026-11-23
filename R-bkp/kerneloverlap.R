@@ -22,7 +22,7 @@
 ##' @seealso See \code{\link[adehabitatHR]{kerneloverlap}} for further
 ##' details on the function and all available arguments.
 ##' @author Modified by Mathieu Basille
-##' \email{basille@@ase-research.org}
+##' \email{mathieu@@basille.org}
 ##' @export
 ##' @examples
 ##' ## Prepare the data:

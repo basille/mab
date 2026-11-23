@@ -12,7 +12,7 @@
 ##' (i.e. relative angle to the previous step).
 ##' @param ... Further arguments not used.
 ##' @return A ltraj object, without missing locations.
-##' @author Mathieu Basille \email{basille@@ase-research.org}
+##' @author Mathieu Basille \email{mathieu@@basille.org}
 ##' @export
 ##' @examples
 ##' data(puechcirc)

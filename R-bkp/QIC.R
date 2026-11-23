@@ -12,7 +12,7 @@
 ##' events, the number of paramaters and the trace. If several models
 ##' are provided, two additional columns present the delta QIC and the
 ##' model weights.
-##' @author Mathieu Basille \email{basille@@ase-research.org} and
+##' @author Mathieu Basille \email{mathieu@@basille.org} and
 ##' Thierry Duchesne
 ##' @export
 QIC <- function(mod, ...)

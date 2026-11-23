@@ -8,7 +8,7 @@
 ##' criterion. Only tested with \code{QIC} (default).
 ##' @param names Logical, whether to assign names to the result.
 ##' @return A numeric vector with the corresponding weights.
-##' @author Mathieu Basille \email{basille@@ase-research.org}
+##' @author Mathieu Basille \email{mathieu@@basille.org}
 ##' @export
 modWeights <- function(..., criterion = QIC, names = TRUE)
 {
