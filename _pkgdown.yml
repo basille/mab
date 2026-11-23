@@ -1,12 +1,10 @@
 url: http://basille.github.io/mab/
 template:
   bootstrap: 5
-
 reference:
 - title: Movement and Habitat Analyses
-
 - subtitle: ltraj management
-  desc: >
+  desc: |
     Functions to handle ltraj from adehabitatLT
   contents:
   - as.ltraj
