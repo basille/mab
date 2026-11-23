@@ -8,3 +8,7 @@
 ^\.github$
 ^README\.Rmd$
 ^README\.html$
+^R-bkp$
+^habitat-selection\.ods$
+^kfoldRSF_IPP_NCourbin\.R$
+^SSF-workflow$

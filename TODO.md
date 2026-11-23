@@ -1,3 +1,13 @@
+# Dependencies
+
+- In R/, only use: 
+
+requireNamespace("x", quietly = TRUE)
+
+and replace all calls to library/require with it.
+
+# Others
+
 * nselect.ltraj <- function(x, n, by = c("loc", "burst"),
     comp = c(">=", ">", "<", "<="), na.rm = FALSE)
 {

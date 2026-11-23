@@ -34,7 +34,7 @@ Major cleanup for 2.0, with a new name to reflect the emphasis on movement:
 
 # hab 1.20
 
-# New features
+## New features
 
 * `closest`: Find closest relocation from ltraj objects.
 
@@ -57,13 +57,11 @@ Major cleanup for 2.0, with a new name to reflect the emphasis on movement:
 
 * `trajdyn`: Use of 'adehabitatLT::id' to avoid conflicts with other packages.
 
-
 # hab 1.19
 
-# New features
+## New features
 
 * `makeSeq`: Define sequences of a trajectory.
-
 
 # hab 1.18
 
@@ -300,7 +298,7 @@ Major cleanup for 2.0, with a new name to reflect the emphasis on movement:
 
 # hab 1.1
 
-# New features
+## New features
 
 * `ld`: Faster version of `ld`, with argument `mode`.
 * `ltraj2spdf`: Use now `mode == "fast"` by default.
