@@ -16,7 +16,8 @@
 #'     functions, which enforce more verifications.
 #' @seealso See \code{\link[adehabitatLT]{ld}} for further details on the
 #'     function and all available arguments.
-#' @author Modified by Mathieu Basille \email{mathieu@@basille.org}
+#' @author Clément Calenge, modified by Mathieu Basille
+#'     \email{mathieu@@basille.org}
 #' @export
 #' @examples
 #' data(puechcirc)

@@ -15,7 +15,8 @@
 #'     \code{ltraj2sldf}, only applies to \code{by = "step"}.
 #' @seealso See \code{\link[adehabitatLT]{ltraj2spdf}} for further details on
 #'     the function and all available arguments.
-#' @author Modified by Mathieu Basille \email{mathieu@@basille.org}
+#' @author Clément Calenge, modified by Mathieu Basille
+#'     \email{mathieu@@basille.org}
 #' @export
 #' @importFrom sp SpatialPointsDataFrame
 #' @examples

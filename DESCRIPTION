@@ -2,10 +2,11 @@ Package: mab
 Title: Movement and Habitat Analyses
 Version: 1.99
 Date: 2026-11-23
-Authors@R: 
+Authors@R: c(
     person("Mathieu", "Basille", email = "mathieu@basille.org",
         role = c("aut", "cre", "cph"),
-        comment = c(ORCID = "0000-0001-9366-7127"))
+        comment = c(ORCID = "0000-0001-9366-7127")),
+    person("Clement", "Calenge", role = "ctb"))
 Description: A set of functions related to movement and habitat selection
     analyses. Also includes patches for functions from the adehabitat package
     family.
