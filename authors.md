@@ -5,6 +5,8 @@
 - **Mathieu Basille**. Author, maintainer, copyright holder.
   [](https://orcid.org/0000-0001-9366-7127)
 
+- **Clement Calenge**. Contributor.
+
 ## Citation
 
 Source:
