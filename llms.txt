@@ -1,0 +1,56 @@
+# mab
+
+The package `mab` is a collection of functions related to movement and
+habitat selection analyses. It also includes a few patches for functions
+from the adehabitat package family (notably
+[adehabitatLT](https://cran.r-project.org/package=adehabitatLT) and
+[adehabitatHR](https://cran.r-project.org/package=adehabitatHR)).
+
+## Installation
+
+Install `mab` from CRAN:
+
+``` r
+
+install.packages("mab")
+```
+
+To install the package from GitHub (which may be ahead of CRAN from time
+to time), use the package
+[`remotes`](https://cran.r-project.org/package=remotes) or better
+[`pak`](https://cran.r-project.org/package=pak) to install `mab`:
+
+``` r
+
+remotes::install_github("basille/mab")
+pak::pkg_install("basille/mab")
+```
+
+## Getting started
+
+Check the function reference list.
+
+# Package index
+
+## Movement and Habitat Analyses
+
+### ltraj management
+
+Functions to handle ltraj from adehabitatLT
+
+- [`as.ltraj()`](http://basille.github.io/mab/reference/as.ltraj.md) :
+  Working with Trajectories in 2D Space: the Class ltraj
+
+- [`ld()`](http://basille.github.io/mab/reference/ld.md)
+  [`dl()`](http://basille.github.io/mab/reference/ld.md) : Quick
+  Conversion of Objects of Class ltraj from and to Dataframes
+
+- [`infolocs()`](http://basille.github.io/mab/reference/infolocs.md) :
+  Infolocs of an Object of Class ltraj
+
+- [`ltraj2spdf()`](http://basille.github.io/mab/reference/ltraj2spdf.md)
+  [`ltraj2sldf()`](http://basille.github.io/mab/reference/ltraj2spdf.md)
+  :
+
+  Conversion of the class `ltraj` to the package `sp`
+
