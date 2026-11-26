@@ -46,7 +46,7 @@ details on the function and all available arguments.
 
 ## Author
 
-Modified by Mathieu Basille <mathieu@basille.org>
+Clement Calenge, modified by Mathieu Basille <mathieu@basille.org>
 
 ## Examples
 
