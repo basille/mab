@@ -16,7 +16,7 @@
 #'     functions, which enforce more verifications.
 #' @seealso See \code{\link[adehabitatLT]{ld}} for further details on the
 #'     function and all available arguments.
-#' @author Clément Calenge, modified by Mathieu Basille
+#' @author Clement Calenge, modified by Mathieu Basille
 #'     \email{mathieu@@basille.org}
 #' @export
 #' @examples

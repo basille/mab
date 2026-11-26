@@ -1,46 +1,55 @@
-## kerneloverlap
-##
-##' Modified version of \code{\link[adehabitatHR]{kerneloverlap}},
-##' which now allows to select several methods at once, and works on
-##' \code{SpatialPointsDataFrame} or \code{estUDm} in the same
-##' function.
-##'
-##' @title Spatial Interaction between Animals Monitored Using
-##' Radio-Tracking
-##'
-##' @param x an object of class \code{SpatialPointsDataFrame}
-##' containing only one column (which is a factor indicating the
-##' identity associated to the relocations) or an object of class
-##' \code{estUDm} containing several home-ranges for which the overlap
-##' is to be calculated
-##' @param method the desired method(s)for the estimation of overlap
-##' (several methods can be chosen, defaults to all at once)
-##' @return An array of class \code{kerneloverlap} with as many
-##' matrices as chosen methods (if only one method is chosen, a matrix
-##' of class \code{kerneloverlap}); each matrix gives the value of
-##' indices of overlap for all pairs of animals.
-##' @seealso See \code{\link[adehabitatHR]{kerneloverlap}} for further
-##' details on the function and all available arguments.
-##' @author Modified by Mathieu Basille
-##' \email{mathieu@@basille.org}
-##' @export
-##' @examples
-##' ## Prepare the data:
-##' data(puechabonsp)
-##' loc <- puechabonsp$relocs
-##' elev <- puechabonsp$map
-##'
-##' ## Kernel overlap using various approaches:
-##' kerneloverlap(puechabonsp$relocs[,1], grid = 200, meth = "HR", conditional = TRUE)
-##' kerneloverlap(puechabonsp$relocs[,1], grid = elev, meth = c("HR", "VI"), conditional = TRUE)
-##' kerneloverlap(puechabonsp$relocs[,1], grid = 200, conditional = TRUE)
-##'
-##' ## Summarizing the results:
-##' summary(kerneloverlap(puechabonsp$relocs[,1], grid = 200))
-##' summary(kerneloverlap(puechabonsp$relocs[,1], grid = 200, percent = 50))
+#' Spatial Interaction between Animals Monitored Using Radio-Tracking
+#'
+#' Modified version of \code{\link[adehabitatHR]{kerneloverlap}}, which now
+#' allows to select several methods at once, and works on
+#' \code{SpatialPointsDataFrame} or \code{estUDm} in the same function. Also
+#' fixes a bug when \code{grid} is provided as a \code{SpatialPixels*} object.
+#'
+#' @param x An object of class \code{SpatialPointsDataFrame} containing only one
+#'     column (which is a factor indicating the identity associated to the
+#'     relocations) or an object of class \code{estUDm} containing several
+#'     home-ranges for which the overlap is to be calculated
+#' @param method The desired method(s)for the estimation of overlap (several
+#'     methods can be chosen, defaults to all at once)
+#' @param percent The percentage level of the home range estimation.
+#' @param conditional Logical.  If \code{TRUE}, the function sets to 0 the
+#'     pixels of the grid over which the UD is estimated, outside the home range
+#'     of the animal estimated at a level of probability equal to
+#'     \code{percent}.  Note that this argument has no effect when
+#'     \code{meth="HR"}.
+#' @param ... Additional arguments to be passed to the function \code{kernelUD}
+#'     for the kernel estimation of the utilization distribution.
+#' @return An array of class \code{kerneloverlap} with as many matrices as
+#'     chosen methods (if only one method is chosen, a matrix of class
+#'     \code{kerneloverlap}); each matrix gives the value of indices of overlap
+#'     for all pairs of animals.
+#' @seealso See \code{\link[adehabitatHR]{kerneloverlap}} for further details on
+#'     the function.
+#' @author Clement Calenge, modified by Mathieu Basille
+#'     \email{mathieu@@basille.org}
+#' @export
+#' @importFrom methods slot
+#' @importFrom adehabitatHR getvolumeUD kernelUD
+#' @importFrom sp coordinates gridparameters
+#' @examples
+#' ## Prepare the data:
+#' data(puechabonsp)
+#' loc <- puechabonsp$relocs
+#' elev <- puechabonsp$map
+#'
+#' ## Kernel overlap using various approaches:
+#' kerneloverlap(puechabonsp$relocs[,1], grid = 200, meth = "HR", conditional = TRUE)
+#' kerneloverlap(puechabonsp$relocs[,1], grid = elev, meth = c("HR", "VI"), conditional = TRUE)
+#' kerneloverlap(puechabonsp$relocs[,1], grid = 200, conditional = TRUE)
+#'
+#' ## Summarizing the results:
+#' summary(kerneloverlap(puechabonsp$relocs[,1], grid = 200))
+#' summary(kerneloverlap(puechabonsp$relocs[,1], grid = 200, percent = 50))
 kerneloverlap <- function(x, method = c("HR", "PHR", "VI", "BA",
     "UDOI", "HD"), percent = 95, conditional = FALSE, ...)
 {
+    ## Extraire les arguments dans '...'
+    arg <- match.call(expand.dots = FALSE)$`...`
     ## Verifications
     ## method <- match.arg(method)
     method <- match.arg(method, several.ok = TRUE)
@@ -53,7 +62,16 @@ kerneloverlap <- function(x, method = c("HR", "PHR", "VI", "BA",
         stop("percent should not be >100")
     ## In case of a SPDF, get the kernelUD estimate
     if (inherits(x, c("SpatialPoints")))
-        x <- kernelUD(x, same4all = TRUE, ...)
+    {
+        ## If grid is provided and is a SpatialPixels*, run kernelUD with
+        ## 'same4all = FALSE'
+        if (try(inherits(eval(arg$grid), "SpatialPixels"), silent = TRUE))
+        {
+            x <- kernelUD(x, same4all = FALSE, ...)
+        } else {
+            x <- kernelUD(x, same4all = TRUE, ...)
+        }
+    }
     ## Other checks...
     if (length(x) == 1)
         stop("several animals are needed for this function")
@@ -154,12 +172,10 @@ kerneloverlap <- function(x, method = c("HR", "PHR", "VI", "BA",
     return(res)
 }
 
-
-## summary.kerneloverlap
-##
-##' @rdname kerneloverlap
-##' @param object An array or matrix of class \code{kerneloverlap}
-##' @export
+#' @rdname kerneloverlap
+#' @param object An array or matrix of class \code{kerneloverlap}
+#' @export
+#' @importFrom utils combn
 summary.kerneloverlap <- function(object, ...)
 {
     ## Check the class of object

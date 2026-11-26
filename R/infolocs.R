@@ -17,7 +17,7 @@
 #'     (\code{TRUE}).
 #' @seealso See \code{\link[adehabitatLT]{infolocs}} for further details on the
 #'     function and all available arguments.
-#' @author Clément Calenge, modified by Mathieu Basille
+#' @author Clement Calenge, modified by Mathieu Basille
 #'     \email{mathieu@@basille.org}
 #' @export
 #' @examples

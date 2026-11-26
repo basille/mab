@@ -1,7 +1,7 @@
 Package: mab
 Title: Movement and Habitat Analyses
 Version: 1.99
-Date: 2026-11-23
+Date: 2026-11-24
 Authors@R: c(
     person("Mathieu", "Basille", email = "mathieu@basille.org",
         role = c("aut", "cre", "cph"),
@@ -12,8 +12,10 @@ Description: A set of functions related to movement and habitat selection
     family.
 URL: https://github.com/basille/mab, http://basille.github.io/mab/
 Depends:
+    adehabitatHR,
     adehabitatLT
 Imports:
+    methods,
     sp
 Config/roxygen2/version: 8.1.1
 Encoding: UTF-8
