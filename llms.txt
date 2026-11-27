@@ -48,6 +48,13 @@ Functions to handle ltraj from adehabitatLT
 - [`infolocs()`](http://basille.github.io/mab/reference/infolocs.md) :
   Infolocs of an Object of Class ltraj
 
+- [`kerneloverlap()`](http://basille.github.io/mab/reference/kerneloverlap.md)
+  [`summary(`*`<kerneloverlap>`*`)`](http://basille.github.io/mab/reference/kerneloverlap.md)
+  : Spatial Interaction between Animals Monitored Using Radio-Tracking
+
+- [`kernelUD()`](http://basille.github.io/mab/reference/kernelUD.md) :
+  Estimation of Kernel Home-Range
+
 - [`ltraj2spdf()`](http://basille.github.io/mab/reference/ltraj2spdf.md)
   [`ltraj2sldf()`](http://basille.github.io/mab/reference/ltraj2spdf.md)
   :

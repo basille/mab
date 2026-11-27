@@ -51,7 +51,7 @@ Clement Calenge, modified by Mathieu Basille <mathieu@basille.org>
 ## Examples
 
 ``` r
-data(puechcirc)
+data(puechcirc, package = "adehabitatLT")
 puechcirc ## class ltraj
 #> 
 #> *********** List of class ltraj ***********

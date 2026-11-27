@@ -73,7 +73,7 @@ Clement Calenge, modified by Mathieu Basille <mathieu@basille.org>
 ## Examples
 
 ``` r
-data(puechabonsp)
+data(puechabonsp, package = "adehabitatMA")
 locs <- puechabonsp$relocs
 xy <- coordinates(locs)
 df <- as.data.frame(locs)

@@ -49,7 +49,7 @@ Clement Calenge, modified by Mathieu Basille <mathieu@basille.org>
 
 ``` r
 ## Load puechcirc data, and add some random infolocs:
-data(puechcirc)
+data(puechcirc, package = "adehabitatLT")
 infolocs(puechcirc)
 #> NULL
 info <- list(data.frame(A = rnorm(80), B = runif(80), C = rpois(80,
