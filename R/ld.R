@@ -20,7 +20,7 @@
 #'     \email{mathieu@@basille.org}
 #' @export
 #' @examples
-#' data(puechcirc)
+#' data(puechcirc, package = "adehabitatLT")
 #' puechcirc ## class ltraj
 #'
 #' ## ld

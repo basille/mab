@@ -48,7 +48,7 @@ Faster version of \code{\link[adehabitatLT]{as.ltraj}}, which can
 be up to 5-10 times faster.
 }
 \examples{
-data(puechabonsp)
+data(puechabonsp, package = "adehabitatMA")
 locs <- puechabonsp$relocs
 xy <- coordinates(locs)
 df <- as.data.frame(locs)

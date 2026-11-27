@@ -29,7 +29,7 @@
 #' @export
 #' @importFrom sp CRS
 #' @examples
-#' data(puechabonsp)
+#' data(puechabonsp, package = "adehabitatMA")
 #' locs <- puechabonsp$relocs
 #' xy <- coordinates(locs)
 #' df <- as.data.frame(locs)

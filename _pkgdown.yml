@@ -10,5 +10,7 @@ reference:
   - as.ltraj
   - dl
   - infolocs
+  - kerneloverlap
+  - kernelUD
   - ld
   - ltraj2spdf

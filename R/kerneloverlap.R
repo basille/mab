@@ -2,8 +2,7 @@
 #'
 #' Modified version of \code{\link[adehabitatHR]{kerneloverlap}}, which now
 #' allows to select several methods at once, and works on
-#' \code{SpatialPointsDataFrame} or \code{estUDm} in the same function. Also
-#' fixes a bug when \code{grid} is provided as a \code{SpatialPixels*} object.
+#' \code{SpatialPointsDataFrame} or \code{estUDm} in the same function.
 #'
 #' @param x An object of class \code{SpatialPointsDataFrame} containing only one
 #'     column (which is a factor indicating the identity associated to the
@@ -33,7 +32,7 @@
 #' @importFrom sp coordinates gridparameters
 #' @examples
 #' ## Prepare the data:
-#' data(puechabonsp)
+#' data(puechabonsp, package = "adehabitatMA")
 #' loc <- puechabonsp$relocs
 #' elev <- puechabonsp$map
 #'
@@ -48,8 +47,6 @@
 kerneloverlap <- function(x, method = c("HR", "PHR", "VI", "BA",
     "UDOI", "HD"), percent = 95, conditional = FALSE, ...)
 {
-    ## Extraire les arguments dans '...'
-    arg <- match.call(expand.dots = FALSE)$`...`
     ## Verifications
     ## method <- match.arg(method)
     method <- match.arg(method, several.ok = TRUE)
@@ -60,18 +57,9 @@ kerneloverlap <- function(x, method = c("HR", "PHR", "VI", "BA",
     ##     stop("xy should be defined in two dimensions")
     if (percent > 100)
         stop("percent should not be >100")
-    ## In case of a SPDF, get the kernelUD estimate
-    if (inherits(x, c("SpatialPoints")))
-    {
-        ## If grid is provided and is a SpatialPixels*, run kernelUD with
-        ## 'same4all = FALSE'
-        if (try(inherits(eval(arg$grid), "SpatialPixels"), silent = TRUE))
-        {
-            x <- kernelUD(x, same4all = FALSE, ...)
-        } else {
-            x <- kernelUD(x, same4all = TRUE, ...)
-        }
-    }
+    ## UD estimation
+    if (!inherits(x, "estUDm"))
+        x <- kernelUD(x, same4all = TRUE, ...)
     ## Other checks...
     if (length(x) == 1)
         stop("several animals are needed for this function")

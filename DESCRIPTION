@@ -1,7 +1,7 @@
 Package: mab
 Title: Movement and Habitat Analyses
 Version: 1.99
-Date: 2026-11-24
+Date: 2026-11-27
 Authors@R: c(
     person("Mathieu", "Basille", email = "mathieu@basille.org",
         role = c("aut", "cre", "cph"),
@@ -15,6 +15,7 @@ Depends:
     adehabitatHR,
     adehabitatLT
 Imports:
+    adehabitatMA,
     methods,
     sp
 Config/roxygen2/version: 8.1.1

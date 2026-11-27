@@ -4,24 +4,32 @@ S3method(summary,kerneloverlap)
 export(as.ltraj)
 export(dl)
 export(infolocs)
+export(kernelUD)
 export(kerneloverlap)
 export(ld)
 export(ltraj2sldf)
 export(ltraj2spdf)
+import(adehabitatHR)
 import(adehabitatLT)
 importFrom(adehabitatHR,
   getvolumeUD,
   kernelUD
 )
-importFrom(methods,slot)
+importFrom(methods,
+  "slot<-",
+  slot
+)
 importFrom(sp,
+  "proj4string<-",
   CRS,
   Line,
   Lines,
   SpatialLines,
   SpatialLinesDataFrame,
+  SpatialPoints,
   SpatialPointsDataFrame,
   coordinates,
-  gridparameters
+  gridparameters,
+  proj4string
 )
 importFrom(utils,combn)

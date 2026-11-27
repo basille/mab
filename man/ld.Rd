@@ -32,7 +32,7 @@ parameters in the data frame (x/y increments, angles, etc.) are still valid
 (e.g. no locations have been removed).
 }
 \examples{
-data(puechcirc)
+data(puechcirc, package = "adehabitatLT")
 puechcirc ## class ltraj
 
 ## ld

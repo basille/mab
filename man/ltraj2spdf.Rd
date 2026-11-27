@@ -31,7 +31,7 @@ each 10,000 steps on a modern computer).
 }
 \examples{
 ## Load puechcirc data, and add some random infolocs:
-data(puechcirc)
+data(puechcirc, package = "adehabitatLT")
 info <- list(data.frame(A = rnorm(80), B = runif(80), C = rpois(80,
     1)), data.frame(A = rnorm(69, 10), B = runif(69, 10, 11),
     C = rpois(69, 10)), data.frame(A = rnorm(66, -10), B = runif(66,

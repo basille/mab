@@ -3,7 +3,6 @@
 Major cleanup for 2.0, with a new name to reflect the emphasis on movement:
 `mab`.
 
-
 # hab 1.20.4
 
 ## Bug fixes
